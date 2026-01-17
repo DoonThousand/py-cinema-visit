@@ -5,10 +5,10 @@ from app.people.cinema_staff import Cleaner
 
 
 def cinema_visit(
-        customers: list,
-        hall_number: int,
-        cleaner: str,
-        movie: str
+    customers: list,
+    hall_number: int,
+    cleaner: str,
+    movie: str,
 ) -> None:
     result = []
 
@@ -17,12 +17,14 @@ def cinema_visit(
     for customer in customers:
         customer_instance = Customer(
             name=customer["name"],
-            food=customer["food"]
+            food=customer["food"],
         )
+
         CinemaBar.sell_product(
             product=customer["food"],
-            customer=customer_instance
+            customer=customer_instance,
         )
+
         result.append(customer_instance)
 
     hall = CinemaHall(hall_number)
